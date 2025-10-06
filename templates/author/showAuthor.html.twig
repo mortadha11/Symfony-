@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ author.username }}{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ asset(author.picture) }}" class="card-img-top" alt="{{ author.username }}" style="height: 300px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h2 class="card-title">{{ author.username | upper }}</h2>
+                    <p class="card-text">
+                        <strong>Email:</strong> {{ author.email }}<br>
+                        <strong>Nombre de livres:</strong> {{ author.nb_books }}
+                    </p>
+                    <a href="{{ path('app_authors_list') }}" class="btn btn-secondary">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Auteurs (Doctrine){% endblock %}
+
+{% block body %}
+
+<h1>Liste des Auteurs (Doctrine)</h1>
+
+{% if authors is not empty %}
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Photo</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Nombre de livres</th>
+        <th>Actions</th>
+    </tr>
+
+```
+{% for author in authors %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td><img src="{{ author.picture }}" alt="{{ author.username }}" width="80"></td>
+        <td>{{ author.username }}</td>
+        <td>{{ author.email }}</td>
+        <td>{{ author.nbBooks }}</td>
+        <td>
+            <a href="{{ path('app_author_edit', {'id': author.id}) }}">Edit</a> |
+            <a href="{{ path('app_author_delete', {'id': author.id}) }}" onclick="return confirm('Supprimer cet auteur ?')">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+```
+
+</table>
+{% else %}
+    <p>Aucun auteur trouvé.</p>
+{% endif %}
+
+<a href="{{ path('app_author_add') }}">+ Ajouter un auteur</a>
+{% endblock %}

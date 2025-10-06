@@ -1,0 +1,29 @@
+{# templates/author/add.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Author{% endblock %}
+
+{% block body %}
+    <h1>Add a new Author</h1>
+
+    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+    <div>
+        {{ form_row(form.username) }}
+    </div>
+    <div>
+        {{ form_row(form.email) }}
+    </div>
+    <div>
+        {{ form_row(form.nb_books) }}
+    </div>
+    <div>
+        {{ form_row(form.picture) }}
+        <small>You can upload a JPEG or PNG image.</small>
+    </div>
+
+    <button class="btn">Save</button>
+
+    {{ form_end(form) }}
+{% endblock %}

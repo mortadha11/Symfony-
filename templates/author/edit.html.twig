@@ -1,0 +1,39 @@
+{# templates/author/edit.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Author{% endblock %}
+
+{% block body %}
+    <h1>Edit Author</h1>
+
+    {# Formulaire avec enctype pour l'upload d'image #}
+    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+    <div>
+        {{ form_row(form.username) }}
+    </div>
+    <div>
+        {{ form_row(form.email) }}
+    </div>
+    <div>
+        {{ form_row(form.nb_books) }}
+    </div>
+    <div>
+        {{ form_row(form.picture) }}
+        <small>You can upload a JPEG or PNG image.</small>
+    </div>
+
+    <button class="btn">Update</button>
+
+    {{ form_end(form) }}
+
+    {# Affichage de l'image actuelle de l'auteur #}
+    {% if author.picture %}
+        <h3>Current Image:</h3>
+        <img src="{{ author.picture }}" alt="{{ author.username }}" width="150">
+    {% endif %}
+
+    <br>
+    <a href="{{ path('app_authors_doctrine') }}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>add Book</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.ref) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.publicationDate) }}
+        {{ form_row(form.category) }}
+        {{ form_row(form.author) }}
+        {{ form_row(form.published) }}
+        <button type="submit" class="btn btn-primary mt-3">Save</button>
+    {{ form_end(form) }}
+
+    <p class="text-center mt-4"><strong>Figure 2 :</strong> Formulaire d’ajout d’un book</p>
+</div>
+{% endblock %}
